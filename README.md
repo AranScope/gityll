@@ -1,5 +1,5 @@
 # gityll
-Transform your issues into a blog.
+Transform your issues into a blog. Using github issues as a CMS.
 
 Take a look at my site <a href="http://aranlong.co.uk/contents">here</a> for an example.
 
