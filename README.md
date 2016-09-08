@@ -6,6 +6,7 @@ Transform your issues into a blog. Using github issues as a CMS.
 <a href="http://aranlong.co.uk/contents">Link</a>
 
 <a href="https://github.com/AranScope/test-repo/issues">Issues page</a>
+![issues page image](https://i.gyazo.com/3e6e82bf488f3472654f04716403b430.png)
 
 ### Gityll issues
 <a href="http://54.171.145.89/contents.html">Link</a>
