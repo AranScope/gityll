@@ -1,4 +1,6 @@
 # gityll
+Because good things come in gityll packages.
+
 Transform your issues into a blog. Using github issues as a CMS.
 
 ## Examples
