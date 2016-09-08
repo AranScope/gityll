@@ -152,10 +152,9 @@ function buttons_from_tags(tags, colors) {
     return new_row;
 }
 
-
 // Convert a github issue into a post
 function parse_issue(issue) {
-    var post_title = issue.title;
+    var post_title = issue.title.replace('/', '').replace('  ', ' '); //temp fix for 'name / name'
     var post_body = issue.body;
 
     var user_name = '';
