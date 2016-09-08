@@ -6,6 +6,7 @@ var fs = require('fs');
 var request = require("request");
 var marked = require('marked');
 var bodyParser = require('body-parser');
+var beautify = require('js-beautify').html;
 var Promise = require('promise');
 app.use(bodyParser.json());
 
@@ -58,7 +59,9 @@ Post.prototype.write_to_file = function() {
         data = data.replace('{{title}}', post.title);
         data = data.replace('{{body}}', post.html);
         data = data.replace('{{tags}}', buttons_from_tags(post.tags, post.colors));
-        data = data.replace('{{author}}', '<br><br><a href=' + post.author_url + '>Written with <3 by ' + '@' + post.author);
+        data = data.replace('{{author}}', '<br><br><a href=' + post.author_url + '>Written with <3 by ' + '@' + post.author + '</a>');
+
+        data = beautify(data, { indent_size: 2 });
 
         console.log('template \'' + post_template_url + '\' read.');
 
