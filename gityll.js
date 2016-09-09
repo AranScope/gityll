@@ -225,6 +225,11 @@ function start() {
     });
 }
 
+// redirect root to contents
+app.get('/', function(req, res) {
+    res.redirect('/contents.html');
+});
+
 // request to view a blog post
 app.get('/:postname', function(req, res) {
 
