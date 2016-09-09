@@ -1,5 +1,5 @@
 # gityll
-Because good things come in gityll packages.
+[gityll.club](http://gityll.club/contents.html) Because good things come in gityll packages.
 
 Transform your issues into a blog. Using github issues as a CMS.
 
