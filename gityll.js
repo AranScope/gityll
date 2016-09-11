@@ -27,11 +27,10 @@ var github_name = '';
 var repo_name = '';
 var post_template_url = './templates/template.html';
 var contents_template_url = './templates/contents-template.html';
-var blog_name = 'gityll - github as a CMS';
 
 /////////////////////////////////////////////
 
-var contents = new Contents(blog_name);
+var contents = new Contents();
 
 /////////////////////////////////////////////
 
@@ -93,8 +92,7 @@ Post.prototype.write_to_file = function() {
 
 // construct a new contents page, a set of post names
 // and urls with an associated title.
-function Contents(title) {
-    this.title = title;
+function Contents() {
     this.post_names = [];
     this.post_urls = [];
 }
@@ -122,10 +120,9 @@ Contents.prototype.write_to_file = function() {
     fs.readFile(contents_template_url, function(err, data) {
         if (err) throw err;
         data = String(data);
-        data = data.replace('{{title}}', contents.title);
 
-        var button = '<a class="button" href="{{href}}" style="margin: 5px;">{{body}}</a>'
-        var new_body = '<h1>' + contents.title + '</h1>';
+        var button = '<a class="button" href="{{href}}" style="margin: 5px;">{{body}}</a>';
+        var new_body = '';
 
         for (i in contents.post_names) {
             var post_name = contents.post_names[i];
