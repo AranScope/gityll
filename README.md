@@ -11,7 +11,7 @@ Transform your issues into a blog. Using github issues as a CMS and Express as a
 ![issues page image](https://i.gyazo.com/3e6e82bf488f3472654f04716403b430.png)
 
 ### Gityll issues
-<a href="http://gityll.club/contents.html">Link</a>
+<a href="http://gityll.club">Link</a>
 
 ## Basics
 gityll is a static site generator that uses the github issues system as a CMS. Point gityll at a repo and you're off. 
@@ -43,5 +43,5 @@ issue text -> post text
 - and probably much more...
 
 ## Issues
-The current version is mostly hacked together, you can see of the proposed changes in the issues section, or, at the gityll generated page. <a href="http://aranlong.co.uk/gityllissues">gityll issues</a>.
+The current version is mostly hacked together, you can see of the proposed changes in the issues section, or, at the gityll generated page. <a href="http://gityll.club">gityll issues</a>.
 
