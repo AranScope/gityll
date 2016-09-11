@@ -45,7 +45,7 @@ function Post(title, body, author, author_url, author_icon_url, tags, time) {
     this.tags = tags;
     this.time = time;
     this.html = marked(this.body);
-    this.url = this.title.replaceAll(' ', '') + '.html'
+    this.url = this.title.replaceAll(' ', '').replaceAll('/', '') + '.html'
 }
 
 String.prototype.replaceAll = function(searchvalue, newvalue) {
@@ -211,10 +211,10 @@ function get_all_issues(name, repo) {
 
 // called on application start
 function start() {
-    if(!fs.exists(content_url)) {
+    if(!fs.existsSync(content_url)) {
         fs.mkdirSync(content_url);
     }
-    
+
     get_all_issues(github_name, repo_name).done(function(issues) {
 
         for (i in issues) {
