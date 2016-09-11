@@ -27,6 +27,7 @@ var github_name = '';
 var repo_name = '';
 var post_template_url = './templates/template.html';
 var contents_template_url = './templates/contents-template.html';
+var content_url = './content/';
 
 /////////////////////////////////////////////
 
@@ -44,7 +45,7 @@ function Post(title, body, author, author_url, author_icon_url, tags, time) {
     this.tags = tags;
     this.time = time;
     this.html = marked(this.body);
-    this.url = './' + this.title.replaceAll(' ', '') + '.html'
+    this.url = this.title.replaceAll(' ', '') + '.html'
 }
 
 String.prototype.replaceAll = function(searchvalue, newvalue) {
@@ -79,7 +80,7 @@ Post.prototype.write_to_file = function() {
 
         console.log('template \'' + post_template_url + '\' read.');
 
-        fs.writeFile(post.url, data, function(err) {
+        fs.writeFile(content_url + post.url, data, function(err) {
             if (err) {
                 console.log(err);
             } else {
@@ -137,7 +138,7 @@ Contents.prototype.write_to_file = function() {
 
         console.log('template \'' + contents_template_url + '\' read.');
 
-        fs.writeFile("./contents.html", data, function(err) {
+        fs.writeFile(content_url + "contents.html", data, function(err) {
             if (err) throw err;
 
             console.log('contents written.');
@@ -210,7 +211,10 @@ function get_all_issues(name, repo) {
 
 // called on application start
 function start() {
-
+    if(!fs.exists(content_url)) {
+        fs.mkdirSync(content_url);
+    }
+    
     get_all_issues(github_name, repo_name).done(function(issues) {
 
         for (i in issues) {
@@ -231,7 +235,7 @@ app.get('/', function(req, res) {
 // request to view a blog post
 app.get('/:postname', function(req, res) {
 
-    var path = './' + req.params.postname + '.html';
+    var path = './' + content_url + req.params.postname + '.html';
 
     if (fs.existsSync(path)) {
         var f = fs.readFileSync(path);
