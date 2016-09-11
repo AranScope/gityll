@@ -44,6 +44,7 @@ function Post(title, body, author, author_url, author_icon_url, tags, time) {
     this.tags = tags;
     this.time = time;
     this.html = marked(this.body);
+    this.url = './' + this.title.replaceAll(' ', '') + '.html'
 }
 
 String.prototype.replaceAll = function(searchvalue, newvalue) {
@@ -78,7 +79,7 @@ Post.prototype.write_to_file = function() {
 
         console.log('template \'' + post_template_url + '\' read.');
 
-        fs.writeFile("./" + post.title + ".html", data, function(err) {
+        fs.writeFile(post.url, data, function(err) {
             if (err) {
                 console.log(err);
             } else {
@@ -215,7 +216,7 @@ function start() {
         for (i in issues) {
             var post = parse_issue(issues[i]);
             post.write_to_file();
-            contents.add_post(post.title, './' + post.title + '.html');
+            contents.add_post(post.title, post.url.replace('.html', ''));
         }
 
         contents.write_to_file();
@@ -224,13 +225,13 @@ function start() {
 
 // redirect root to contents
 app.get('/', function(req, res) {
-    res.redirect('/contents.html');
+    res.redirect('/contents');
 });
 
 // request to view a blog post
 app.get('/:postname', function(req, res) {
 
-    var path = './' + req.params.postname;
+    var path = './' + req.params.postname + '.html';
 
     if (fs.existsSync(path)) {
         var f = fs.readFileSync(path);
@@ -251,7 +252,7 @@ app.post('/issue', function(req, res) {
     var post = parse_issue(req.body.issue);
     post.write_to_file();
 
-    contents.add_post(post);
+    contents.add_post(post.title, post.url.replace('.html', ''));
     contents.write_to_file();
 });
 
