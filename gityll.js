@@ -43,7 +43,8 @@ function Post(title, body, author, author_url, author_icon_url, tags, time) {
     this.author_url = author_url;
     this.author_icon_url = author_icon_url;
     this.tags = tags;
-    this.time = time;
+    time = time.split('-')
+    this.time = time[2].substring(0,2) + '.' + time[1] + '.' + time[0]
     this.html = marked(this.body);
     this.url = this.title.replaceAll(' ', '').replaceAll('/', '') + '.html'
 }
