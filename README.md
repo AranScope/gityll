@@ -4,11 +4,7 @@
 Transform your issues into a blog. Using github issues as a CMS and Express as a web server.
 
 ## Examples
-### My personal site
-<a href="http://aranlong.co.uk/contents">Link</a>
-
-<a href="https://github.com/AranScope/test-repo/issues">Issues page</a>
-![issues page image](https://i.gyazo.com/3e6e82bf488f3472654f04716403b430.png)
+Checkout the in-progress version of Gityll on <a href="http://aranlong.co.uk/contents">my personal site.</a> This is all generated from the issues page <a href="http://github.com/aranscope/aranlong.co.uk">here.</a>
 
 ### Gityll issues
 <a href="http://gityll.club">Link</a>
@@ -45,3 +41,7 @@ issue text -> post text
 ## Issues
 The current version is mostly hacked together, you can see of the proposed changes in the issues section, or, at the gityll generated page. <a href="http://gityll.club">gityll issues</a>.
 
+## Attribution
+<a href="http://subtlepatterns.com/">Subtle Patterns</a> - Awesome minimalist backgrounds for websites.
+<a href="http://bettermotherfuckingwebsite.com/">BetterMotherFuckingWebsite</a> - Basis of the alt theme.
+<a href="http://pixyll.com/">Pixyll</a> - Heavily inspired alt theme.
