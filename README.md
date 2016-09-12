@@ -9,8 +9,36 @@ Checkout the in-progress version of Gityll on <a href="http://aranlong.co.uk/con
 ### Gityll issues
 <a href="http://gityll.club">Link</a>
 
-## Basics
-gityll is a static site generator that uses the github issues system as a CMS. Point gityll at a repo and you're off. 
+[Gityll](https://github.com/aranscope/gityll) is a customisable site generator using [Gitub](https://github.com) issues as a CMS and [Express](https://expressjs.com/) as a backend.
+
+## Setup Guide
+To run Gityll I suggest using a VPS from [DigitalOcean](https://digitalocean.com) or [AWS EC2](https://aws.amazon.com).
+
+1. `git clone https://github.com/aranscope/gityll`
+2. `cd gityll/templates/`
+3. customise the contents template and post template to your hearts desire
+4. `cd ..`
+5. `node gityll.js [port] [git repo url]`
+
+Running Gityll will throw dependency errors, in the meantime before this is properly packages, you can manually run ```npm install [dependency]``` or ```npm install [dependency] -g``` to install these dependencies locally or globally. 
+
+## Tags
+### Posts
+These tags can be added anywhere in the ```template.html``` file.
+```
+title - the title of the post
+body - the html content of the post
+author - the author's name (assignee of the issue)
+author_url - the author's github url
+author_icon_url - the authors github profile icon
+time - the time the post was last modified
+tags - the tags for the post
+```
+### Contents
+These tags can be added anywhere in the ```contents.html``` file.
+```
+body - links to all of the posts, dependent on theme
+```
 
 ## What?
 Let's give you a map from issues -> blog
