@@ -43,5 +43,7 @@ The current version is mostly hacked together, you can see of the proposed chang
 
 ## Attribution
 <a href="http://subtlepatterns.com/">Subtle Patterns</a> - Awesome minimalist backgrounds for websites.
+
 <a href="http://bettermotherfuckingwebsite.com/">BetterMotherFuckingWebsite</a> - Basis of the alt theme.
+
 <a href="http://pixyll.com/">Pixyll</a> - Heavily inspired alt theme.
