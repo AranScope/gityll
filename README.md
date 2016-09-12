@@ -9,7 +9,7 @@ Checkout the in-progress version of Gityll on <a href="http://aranlong.co.uk/con
 ### Gityll issues
 <a href="http://gityll.club">Link</a>
 
-[Gityll](https://github.com/aranscope/gityll) is a customisable site generator using [Gitub](https://github.com) issues as a CMS and [Express](https://expressjs.com/) as a backend.
+[Gityll](https://github.com/aranscope/gityll) is a customisable site generator using Github issues as a CMS and [Express](https://expressjs.com/) as a backend.
 
 ## Setup Guide
 To run Gityll I suggest using a VPS from [DigitalOcean](https://digitalocean.com) or [AWS EC2](https://aws.amazon.com).
