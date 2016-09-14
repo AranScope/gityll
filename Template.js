@@ -5,12 +5,15 @@ Template = function(path) {
 	this.template_file = String(fs.readFileSync(path));
 
 	// these matches will have all html escaped.
-	this.escape_matches = this.template_file.match(new RegExp('{{[^{}]*}}', ['g']));
+	this.escape_matches = this.template_file.match(new RegExp('{{[^{}#]*}}', ['g']));
 	if(this.escape_matches == null) this.escape_matches = [];
 
 	// these matches will not have html escaped.
-	this.non_escape_matches = this.template_file.match(new RegExp('{{{[^{}]*}}', ['g']));
+	this.non_escape_matches = this.template_file.match(new RegExp('{{{[^{}#]*}}}', ['g']));
 	if(this.non_escape_matches == null) this.non_escape_matches = [];
+
+	// these matches are templates themselves.
+
 }
 
 /**
@@ -57,12 +60,12 @@ Template.prototype.apply = function(context) {
 			// get value of member variable.
 			var value = context[key];
 
-			if(this.escape_matches.contains('{{' + key + '}}')) {
+			if(this.non_escape_matches.contains('{{{' + key + '}}}')) {
+				new_file = new_file.replaceAll('{{{' + key + '}}}', value);
+			} else if(this.escape_matches.contains('{{' + key + '}}')) {
 				new_file = new_file.replaceAll('{{' + key + '}}', escape(value));
 
-			} else if(this.non_escape_matches.contains('{{{' + key + '}}}')) {
-				new_file = new_file.replaceAll('{{{' + key + '}}}', value);
-			}
+			}  
 
 		}
 	}
