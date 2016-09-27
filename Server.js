@@ -5,6 +5,7 @@ var github = require('./Github.js');
 var Template = require('./Template.js');
 var Post = require('./Post.js');
 var Contents = require('./Contents.js');
+var bodyparser = require('body-parser');
 
 var contents_template = new Template('./templates/contents.html');
 var topics_template = new Template('./templates/filter.html');
