@@ -1,0 +1,28 @@
+{
+  "name": "gityll",
+  "version": "1.0.0",
+  "description": "using Github issues as a CMS",
+  "main": "Server.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "js-beautify": "^1.6.4",
+    "marked": "^0.3.6",
+    "promise": "^7.1.1",
+    "request": "^2.74.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node Server.js 80 http://github.com/aranscope/gityll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aranscope/gityll.git"
+  },
+  "author": "Aran Long",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aranscope/gityll/issues"
+  },
+  "homepage": "https://github.com/aranscope/gityll#readme"
+}

@@ -53,13 +53,30 @@ app.get('/topic/:topicname', function(req, res) {
     res.send(response);
 });
 
+// webhook call from github issues
+app.post('/issue', function(req, res) {
+
+    console.log(String(req.body.action));
+    console.log(req.body.issue);
+
+    res.send('issue logged');
+
+    var post = new Post(req.body.issue);
+
+    contents.add_post(post);
+
+    fs.writeFile(content_dir + post.url + '.html', post.to_html(), function(err) {
+        if (err) throw err;
+        console.log('post: ' + post.title + ' written');
+    });
+});
+
 String.prototype.equalsIgnoreCase = function(cmp) {
     return this.toUpperCase() == cmp.toUpperCase();
 }
 
 function start() {
     github.get_all_issues(github_name, repo_name).done(function(issues) {
-        // /console.log(issues);
 
         issues.forEach(function(issue) {
             if (issue.assignees.length > 0 && issue.assignees[0].login.equalsIgnoreCase(github_name)) {
