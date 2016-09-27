@@ -40,7 +40,7 @@ Contents.prototype.html_previews = function() {
 
 Contents.prototype.to_html = function() {
 	var html = contents_template.apply({
-		title: 'Aran Long',
+		title: this.posts[0].post_author_name,
 		posts: this.html_previews()
 	});
 
