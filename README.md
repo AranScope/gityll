@@ -31,6 +31,14 @@ To run Gityll I suggest using a VPS from [DigitalOcean](https://digitalocean.com
 6. npm start [port] [repo url]
 ```
 
+### Webhooks
+Go to your repo on github, go to settings, webhooks.
+
+Add a new webhook pointing to yourip/issue that will be triggered when an issue is updated or commented on.
+
+This will mean posts can be updated without restarting the server.
+
+### Debugging
 With certain hosts, ec2 for example, you may run into issues running on certain ports. In some cases you may need to run as sudo (but very rarely) or forward certain ports with your host.
 
 ## Tags
