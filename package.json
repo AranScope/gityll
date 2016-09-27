@@ -13,6 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node Server.js",
     "test": "node Server.js 80 http://github.com/aranscope/gityll"
   },
   "repository": {
