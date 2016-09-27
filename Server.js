@@ -5,7 +5,7 @@ var github = require('./Github.js');
 var Template = require('./Template.js');
 var Post = require('./Post.js');
 var Contents = require('./Contents.js');
-var bodyparser = require('body-parser');
+var bodyParser = require('body-parser');
 
 var contents_template = new Template('./templates/contents.html');
 var topics_template = new Template('./templates/filter.html');
@@ -16,6 +16,7 @@ var static_dir = './static/';
 var contents = new Contents();
 
 app.use(express.static('static'));
+app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
     res.redirect('/contents');
