@@ -12,6 +12,7 @@ var topics_template = new Template('./templates/filter.html');
 
 var content_dir = './content/';
 var static_dir = './static/';
+var github_name = '';
 
 var contents = new Contents();
 
@@ -63,14 +64,21 @@ app.post('/issue', function(req, res) {
 
     res.send('issue logged');
 
-    var post = new Post(req.body.issue);
+    if (issue.assignees.length > 0 && issue.assignees[0].login.equalsIgnoreCase(github_name)) {
+        var post = new Post(req.body.issue);
 
-    contents.add_post(post);
+        contents.add_post(post);
 
-    fs.writeFile(content_dir + post.url + '.html', post.to_html(), function(err) {
-        if (err) throw err;
-        console.log('post: ' + post.title + ' written');
-    });
+        fs.writeFile(content_dir + post.url + '.html', post.to_html(), function(err) {
+            if (err) throw err;
+            console.log('post: ' + post.title + ' written');
+        });
+
+        fs.writeFile(content_dir + 'contents.html', contents.to_html(), function(err) {
+            if (err) throw err;
+            console.log('contents written');    
+        });
+    }
 });
 
 String.prototype.equalsIgnoreCase = function(cmp) {
