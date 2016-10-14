@@ -14,25 +14,21 @@ Checkout the in-progress version of Gityll on <a href="http://aranlong.co.uk/con
 ## Setup Guide
 To run Gityll I suggest using a VPS from [DigitalOcean](https://digitalocean.com) or [AWS EC2](https://aws.amazon.com).
 
-```
-1. git clone https://github.com/aranscope/gityll
-2. cd gityll
-3. npm install
-4. npm start [port] [repo url]
-```
+1. `git clone https://github.com/aranscope/gityll`
+2. `cd gityll`
+3. `npm install`
+4. `npm start [port] [repo url]`
 
 ### Advanced
-```
-1. cd gityll/templates
+1. `cd gityll/templates`
 2. customise these templates
-3. cd ../static
+3. `cd ../static`
 4. customise the style.css
-5. cd ..
-6. npm start [port] [repo url]
-```
+5. `cd ..`
+6. `npm start [port] [repo url]`
 
 ### Webhooks
-Go to your repo on github, go to settings, webhooks.
+Go to your repo on github then settings and webhooks.
 
 Add a new webhook pointing to yourip/issue that will be triggered when an issue is updated or commented on.
 
@@ -86,7 +82,7 @@ issue text -> post text
 - and probably much more...
 
 ## Issues
-The current version is mostly hacked together, you can see of the proposed changes in the issues section, or, at the gityll generated page. <a href="http://gityll.club">gityll issues</a>.
+The current version is mostly hacked together. You can see of the proposed changes in the issues section, or, at the gityll generated page. <a href="http://gityll.club">gityll issues</a>.
 
 ## Attribution
 <a href="http://bettermotherfuckingwebsite.com/">BetterMotherFuckingWebsite</a> - Basis of the alt theme.
